@@ -1,9 +1,11 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
+import App from './App';
+
 ReactDOM.render(
-    <div>
-        <h1>Will McKinnon</h1>
-    </div>,
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>,
     document.querySelector('#root')
-)
+);

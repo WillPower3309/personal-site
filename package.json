@@ -4,7 +4,9 @@
   "description": "willmckinnon.com",
   "main": "index.ts",
   "scripts": {
-    "build": "webpack",
+    "start": "webpack-dev-server --config webpack.config.development.js",
+    "build": "cross-env NODE_ENV=production webpack -p --config webpack.config.production.js",
+    "prebuild": "rimraf dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,15 +29,20 @@
   "homepage": "https://github.com/willpower3309/personal-site#readme",
   "dependencies": {
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
     "@types/node": "^14.0.14",
     "@types/react": "^16.9.41",
     "@types/react-dom": "^16.9.8",
+    "cross-env": "^7.0.2",
+    "html-webpack-plugin": "^4.3.0",
+    "rimraf": "^3.0.2",
     "ts-loader": "^7.0.5",
     "typescript": "^3.9.6",
     "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   }
 }
