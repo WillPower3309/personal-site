@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/willpower3309/personal-site#readme",
   "dependencies": {
+    "firebase": "^7.15.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0"
