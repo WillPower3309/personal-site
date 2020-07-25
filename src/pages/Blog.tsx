@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 
-import { getFirebase } from './firebase';
+import { getFirebase } from '../firebase';
 
 const Blog = () => {
     const [loading, setLoading] = React.useState(true);

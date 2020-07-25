@@ -1,4 +1,6 @@
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const port = process.env.PORT || 3000;
 
 module.exports = {
@@ -26,7 +28,6 @@ module.exports = {
             favicon: 'public/favicon.ico'
         })
     ],
-
     devServer: {
         host: 'localhost',
         port: port,
