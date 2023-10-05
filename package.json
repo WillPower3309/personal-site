@@ -1,49 +1,27 @@
 {
   "name": "personal-site",
-  "version": "1.0.0",
-  "description": "willmckinnon.com",
-  "main": "index.ts",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "start": "webpack-dev-server --config webpack.config.development.js",
-    "build": "cross-env NODE_ENV=production webpack -p --config webpack.config.production.js",
-    "prebuild": "rimraf dist",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/willpower3309/personal-site.git"
-  },
-  "keywords": [
-    "react",
-    "typescript",
-    "jsx",
-    "webpack",
-    "frontend",
-    "javascript"
-  ],
-  "author": "William McKinnon",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/willpower3309/personal-site/issues"
-  },
-  "homepage": "https://github.com/willpower3309/personal-site#readme",
   "dependencies": {
-    "firebase": "^7.15.5",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-router-dom": "^5.2.0",
-    "styled-components": "^5.1.1"
+    "react": "^18",
+    "react-dom": "^18",
+    "next": "13.5.4"
   },
   "devDependencies": {
-    "@types/react": "^16.9.41",
-    "@types/react-dom": "^16.9.8",
-    "cross-env": "^7.0.2",
-    "html-webpack-plugin": "^4.3.0",
-    "rimraf": "^3.0.2",
-    "ts-loader": "^7.0.5",
-    "typescript": "^3.9.6",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10",
+    "postcss": "^8",
+    "tailwindcss": "^3",
+    "eslint": "^8",
+    "eslint-config-next": "13.5.4"
   }
 }
