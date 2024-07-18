@@ -1,4 +1,5 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
+import rehypeExternalLinks from 'rehype-external-links'
 
 export const Post = defineDocumentType(() => ({
     name: 'Post',
@@ -12,5 +13,10 @@ export const Post = defineDocumentType(() => ({
     },
 }))
 
-export default makeSource({ contentDirPath: 'posts', documentTypes: [Post] })
+export default makeSource({
+    contentDirPath: 'posts', documentTypes: [Post],
+    markdown: { rehypePlugins: [
+        [ rehypeExternalLinks, { target: "_blank" } ],
+    ]},
+})
 

@@ -16,7 +16,7 @@ export default function Navbar() {
   const posts = allPosts.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
 
   return (
-    <div className="p-4">
+    <aside className="w-60 p-4 bg-gray-700">
       <Link href="/" className="flex text-center text-2xl text-white m-2">
         <h1>Will</h1><h1 className="font-black">McKinnon</h1>
       </Link>
@@ -27,6 +27,6 @@ export default function Navbar() {
           <PostListItem key={idx} {...post} />
         ))}
       </ul>
-    </div>
+    </aside>
   )
 }
