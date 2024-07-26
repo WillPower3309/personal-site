@@ -49,7 +49,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className="flex h-screen overflow-hidden">
-        <Navbar className="overflow-hidden" />
+        <Navbar />
         <div className="bg-gray-800 overflow-auto w-full">
           {children}
         </div>
