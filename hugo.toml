@@ -1,0 +1,4 @@
+baseURL = 'https://willmckinnon.com/'
+languageCode = 'en-us'
+title = "Will McKinnon's blog"
+theme = 'stack'
