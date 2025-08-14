@@ -1,0 +1,71 @@
+// =============================
+// Code Blocks
+// =============================
+/* Custom variable, modify the height here as needed */
+$codeblock-max-height: 25em;
+
+/* Set the outermost .highlight as the “only” scrollable container */
+.highlight {
+  max-height: $codeblock-max-height;
+  overflow: auto; /* Controls both X and Y directions */
+  -webkit-overflow-scrolling: touch; /* Inertia scrolling on mobile */
+}
+
+/* Disable internal pre/code scrollbars (to avoid double scrollbars) */
+.highlight pre,
+.highlight code,
+.highlight .chroma {
+  overflow: visible !important; /* Override Stack’s overflow-x:auto on pre */
+}
+
+/* Make the line number table auto-expand with content width to enable X scroll on wide blocks */
+.lntable {
+  display: inline-table; /* Keeps table property, allows content-dependent width */
+  min-width: max-content;
+  border-spacing: 0;
+}
+
+/* Disable auto-wrapping, long lines are handled by horizontal scrolling */
+.lntd:last-child code,
+.highlight code {
+  white-space: pre;
+}
+.lntd:first-child {
+  user-select: none; // Prevent selecting line numbers
+}
+
+/* Left column (line numbers) */
+.chroma .lntd, .chroma .lntd pre, .chroma .ln {
+    font-size: 14px;
+    font-family: var(--code-font-family);
+}
+/* Right column (code) */
+.chroma code, .chroma pre {
+    font-size: 14px;
+    font-family: var(--code-font-family);
+}
+
+// Add MacOS style to the top of code blocks
+.article-content {
+    .highlight:before {
+        content: "";
+        display: block;
+        background: url(/img/code-header.svg);
+        height: 25px;
+        width: 100%;
+        background-size: 52px;
+        background-repeat: no-repeat;
+        margin-top: -10px;
+        margin-bottom: 0;
+    }
+}
+
+.article-content {
+  .highlight {
+    border-radius: 10px;
+    max-width: 100% !important;
+    margin: 0 !important;
+    box-shadow: var(--shadow-l1) !important;
+  }
+}
+
