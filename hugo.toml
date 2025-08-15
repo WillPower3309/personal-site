@@ -2,3 +2,22 @@ baseURL = 'https://willmckinnon.com/'
 languageCode = 'en-us'
 title = "Will McKinnon's blog"
 theme = 'stack'
+
+[Params.comments]
+enabled = true
+provider = "giscus"
+
+[Params.comments.giscus]
+repo="willpower3309/personal-site"
+repoID="MDEwOlJlcG9zaXRvcnkyNzI3NjE5NTk="
+category="Announcements"
+categoryID="DIC_kwDOEEIEZ84CuMaB"
+mapping="pathname"
+reactionsEnabled = 1
+emitMetadata = 0
+inputPosition="bottom"
+theme="preferred_color_scheme"
+lang="en"
+loading="lazy"
+crossorigin="anonymous"
+
