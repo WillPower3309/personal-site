@@ -15,15 +15,16 @@
           pkgs = import nixpkgs {
             inherit system;
           };
+          themeInitScript = ''
+            mkdir -p themes
+            ln -sn "${stack-theme}" "themes/stack"
+          '';
         in {
           packages = {
             hugo-blog = pkgs.stdenv.mkDerivation rec {
               name = "hugo-blog";
               src = self;
-              configurePhase = ''
-                mkdir -p "themes/stack"
-                cp -r ${stack-theme}/* "themes/stack"
-              '';
+              configurePhase = themeInitScript;
               buildPhase = ''
                 ${pkgs.hugo}/bin/hugo --minify
               '';
@@ -51,10 +52,7 @@
 
           devShells.default = pkgs.mkShell {
             buildInputs = [ pkgs.hugo ];
-            shellHook = ''
-              mkdir -p themes
-              ln -sn "${stack-theme}" "themes/stack"
-            '';
+            shellHook = themeInitScript;
           };
         }
       );
