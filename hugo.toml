@@ -1,6 +1,6 @@
 baseURL = 'https://willmckinnon.com/'
 languageCode = 'en-us'
-title = "Will McKinnon's blog"
+title = "Will McKinnon's Blog"
 theme = 'stack'
 
 [Params.comments]
@@ -20,4 +20,16 @@ theme="preferred_color_scheme"
 lang="en"
 loading="lazy"
 crossorigin="anonymous"
+
+[Params.sidebar]
+subtitle="SDE and open source enthusiast"
+
+[menu]
+[[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 10
+    identifier = "home"
+    [menu.main.params]
+        icon = "home"
 
