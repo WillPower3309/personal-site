@@ -42,7 +42,7 @@ My initial thought was to combine [Nomad](https://developer.hashicorp.com/nomad/
 
 While virtual machines provide stronger security than containers (which share the host's kernel), containers are much lighter than virtual machines, even when considering microvms. Kubernetes has been on my "list of things to learn" for a while, and with declarative containers being a possibility through Nix, was a tempting alternative.
 
-After creating a [nomad cluster + microvm POC](https://github.com/WillPower3309/nixos-config/tree/f943c46744985391d08a85b3b1bf86af5a548f3a/modules/hosts/server-cluster), I was happy with the outcomes but ultimately decided on using Kubernetes, sacrificing a bit of security to better meet my efficiency goal. For a production system, security would be the top priority, but for this personal cluster with minimal exposure to the internet, I was comfortable making that sacrifice.
+Despite creating a [nomad cluster + microvm POC](https://github.com/WillPower3309/nixos-config/tree/f943c46744985391d08a85b3b1bf86af5a548f3a/modules/hosts/server-cluster) that I was happy with, I ultimately decided on using Kubernetes, sacrificing a bit of security to better meet my efficiency goal. For a production system, security would be the top priority, but for this personal cluster with minimal exposure to the internet, I was comfortable making that sacrifice. Luckily, a lot of the work done in the POC in configuring the hardware for the cluster can carry over to the containerization approach.
 
 ### Distributed Filesystem
 
