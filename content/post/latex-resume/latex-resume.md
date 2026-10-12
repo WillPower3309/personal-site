@@ -44,9 +44,7 @@ jobs:
         body: "Latest version of William McKinnon's resume"
 ```
 
-Prior to running this action, I needed to grant GitHub actions write permissions to the resume repo, otherwise it wouldn't be able to update the release. I found this setting in Settings / Actions / General / Workflow Permissions:
-
-![](github-actions-permission.jpg)
+Prior to running this action, I needed to grant GitHub actions write permissions to the resume repo, otherwise it wouldn't be able to update the release. I found this setting in Settings / Actions / General / Workflow Permissions.
 
 # Conclusion
 As simple as that, updating my resume now requires no additional work beyond the textual update itself (like most sane people)! Beyond this process, I've also added a step in the release workflow to create a `.png` copy of my resume as well, so that it can be seen in all of its glory in the README of its own repo, as well as on this site. This image will always be up to date (aside whatever media caching your web browser of choice implements), as it links to the `.png` file in the release:
