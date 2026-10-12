@@ -17,7 +17,7 @@
           };
           themeInitScript = ''
             mkdir -p themes
-            ln -sn "${stack-theme}" "themes/stack"
+            ln -sfn "${stack-theme}" "themes/stack"
           '';
         in {
           packages = {
@@ -38,11 +38,13 @@
             build = utils.lib.mkApp { drv = pkgs.hugo; };
             serve = utils.lib.mkApp {
               drv = pkgs.writeShellScriptBin "hugo-serve" ''
+                ${themeInitScript}
                 ${pkgs.hugo}/bin/hugo server -D
               '';
             };
             newpost = utils.lib.mkApp {
               drv = pkgs.writeShellScriptBin "new-post" ''
+                ${themeInitScript}
                 ${pkgs.hugo}/bin/hugo new content posts/"$1".md
               '';
             };
