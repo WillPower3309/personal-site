@@ -1,6 +1,6 @@
 ---
 title: "Highly Available NixOS Homelab: Part 1 (Design)"
-date: 2026-10-09
+date: 2026-10-14
 draft: true
 ---
 
@@ -52,11 +52,11 @@ While [ceph](https://ceph.io) is arguably the standard, I decided to leverage Se
 
 This endeavour really reinforced the added complexity that high availability demands. While I tried to scope this blog post to the design phase of the homelab, I couldn't help but design and print mounts for the hardware to fit in the rack, and get all of the hardware mounted:
 
-INSERT PICTURE
+![A picture of the half-width network rack, with the hardware mounted](/img/network-rack.png)
 
-These STL files are publicly available on Printables:
-+ 4U 3x MS-01 half-width rack mount
-+ 2U Switch + Keystone Patch Panel
+I've made these STL files publicly available on Printables with a Creative Commons license:
++ [4U 3x MS-01 half-width rack mount](https://www.printables.com/model/1877442-3x-ms-01-4u-10-half-width-rack-mount)
++ [2U Switch + Keystone Patch Panel](https://www.printables.com/model/1877448-2u-aliexpress-16-x-1gb-4-x-10gb-poe-switch-10-rack)
 
 I hope you enjoyed my overview!
 
