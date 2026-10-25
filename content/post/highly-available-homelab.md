@@ -36,7 +36,7 @@ I found a switch on Aliexpress that could be stripped down to fit in a 1U space,
 
 ### NixOS
 
-While the specifics of NixOS are out of scope for this blog post, the uninitiated can think of it as a tool to declaratively define a computer through configuration files. It provides primitives for package installation, user managent, and creating and managing systemd services, directories, and files. The community then builds modules for specific services or features on top of those primitives, abstracting away some configuration complexity. This allows users to configure an entire service through a few high level options provided by its module.
+While the specifics of NixOS are out of scope for this blog post, the uninitiated can think of it as a tool to declaratively define a computer through configuration files. It provides primitives for package installation, user management, and creating and managing systemd services, directories, and files. The community then builds modules for specific services or features on top of those primitives, abstracting away some configuration complexity. This allows users to configure an entire service through a few high level options provided by its module.
 
 Because my cluster will consist of multiple nodes running a near identical configuration (a small subset of settings will differ, such as IP and hostname), a shared configuration can be written and deployed to each node, respecting the DRY principle and minimizing setup time.
 
