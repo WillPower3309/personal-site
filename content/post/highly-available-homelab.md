@@ -32,6 +32,9 @@ After mapping out the measurements, I realized that all three mini PCs could fit
 
 I found a switch on Aliexpress that could be stripped down to fit in a 1U space, with 4 10 GbE SFP+ ports (one for each node plus my desktop), and 16 1 GbE RJ45 ports. For the hard drives I found an STL for a hot-swappable 2U half-width 6 drive JBOD [on Printables](https://www.printables.com/model/1305461-10-inch-rack-2u-6-x-35-inch-hdd-hot-swap).
 
+All of the hardware would be connected as follows:
+![](/img/homelab-network.svg)
+
 ## The Software
 
 ### NixOS
@@ -67,6 +70,8 @@ The final option I looked into was Kubernetes, the industry standard for contain
 In a high-availability cluster, any service must be able to quickly failover to any node. This means each container's persistent state needs to be consistently available across all of the nodes in the cluster via a shared storage layer. While many enterprise networks physically separate compute and storage, I am opting for a hyperconverged infrastructure, meaning that the same physical cluster will be responsible for both tasks. Adding a standalone NAS was an alternative option, but would result in introducing a single point of failure, and risk violating the narrow size constraints of my homelab.
 
 An important choice for storage is redundancy. Since my cluster consists of only 3 nodes, I opted for a replication scheme that allows for a single-node failure. This allows the cluster to survive the loss of a single node at the cost of 33% of its total storage capacity. While 2 nodes of redundancy would have provided more resilience --- allowing a single node keep the storage layer operational --- losing 66% of the available capacity to overhead was too high of a price to pay. Furthermore, requiring more drives for the same usable storage linearly increases energy consumption, which would violate my power efficiency constraints.
+
+![](/img/storage-replication-vs-ec.svg)
 
 My options for a distributed filesystem ended up mirroring my search for a cluster workload orchestrator: a choice between a heavy industry standard and a lightweight but niche alternative.
 

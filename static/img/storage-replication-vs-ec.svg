@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="410" viewBox="0 0 1200 410" font-family="Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Replication panel -->
+  <rect x="40" y="30" width="550" height="356" rx="16" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
+  <text x="60" y="70" font-size="22" font-weight="700" fill="#1e3a8a">3&#215; Replication</text>
+  <text x="60" y="100" font-size="13" fill="#334155">Every node keeps a complete copy of object A.</text>
+  <text x="60" y="128" font-size="12" font-weight="600" fill="#1d4ed8">Total raw write is 3&#215; the object size.</text>
+  <text x="60" y="162" font-size="12" fill="#1e40af">&#8226; Reads served from any node</text>
+  <text x="60" y="186" font-size="12" fill="#1e40af">&#8226; Simple to operate</text>
+  <text x="60" y="210" font-size="12" fill="#1e40af">&#8226; No rebuild needed after a failure</text>
+
+  <g filter="url(#shadow)">
+    <rect x="400" y="48" width="170" height="156" rx="12" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.5"/>
+    <text x="485" y="108" font-size="30" font-weight="700" fill="#1e3a8a" text-anchor="middle">2</text>
+    <text x="485" y="128" font-size="10" font-weight="600" fill="#1e40af" text-anchor="middle">node failures tolerated</text>
+    <line x1="416" y1="142" x2="554" y2="142" stroke="#93c5fd" stroke-width="1"/>
+    <text x="485" y="178" font-size="24" font-weight="700" fill="#1e3a8a" text-anchor="middle">33%</text>
+    <text x="485" y="194" font-size="10" font-weight="600" fill="#1e40af" text-anchor="middle">usable &#183; 67% overhead</text>
+  </g>
+
+  <!-- Replication nodes -->
+  <g filter="url(#shadow)">
+    <rect x="60" y="240" width="150" height="120" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
+    <rect x="60" y="240" width="150" height="26" rx="8" fill="#047857"/>
+    <rect x="60" y="256" width="150" height="10" fill="#047857"/>
+    <text x="72" y="258" font-size="10" font-weight="700" fill="#ffffff">node-1</text>
+    <rect x="72" y="276" width="126" height="44" rx="6" fill="#d1fae5" stroke="#a7f3d0"/>
+    <rect x="75" y="280" width="120" height="36" rx="4" fill="#2563eb"/>
+    <text x="135" y="305" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">A</text>
+    <text x="135" y="342" font-size="8" font-weight="600" fill="#047857" text-anchor="middle">full copy</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="240" y="240" width="150" height="120" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
+    <rect x="240" y="240" width="150" height="26" rx="8" fill="#047857"/>
+    <rect x="240" y="256" width="150" height="10" fill="#047857"/>
+    <text x="252" y="258" font-size="10" font-weight="700" fill="#ffffff">node-2</text>
+    <rect x="252" y="276" width="126" height="44" rx="6" fill="#d1fae5" stroke="#a7f3d0"/>
+    <rect x="255" y="280" width="120" height="36" rx="4" fill="#2563eb"/>
+    <text x="315" y="305" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">A</text>
+    <text x="315" y="342" font-size="8" font-weight="600" fill="#047857" text-anchor="middle">full copy</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="420" y="240" width="150" height="120" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
+    <rect x="420" y="240" width="150" height="26" rx="8" fill="#047857"/>
+    <rect x="420" y="256" width="150" height="10" fill="#047857"/>
+    <text x="432" y="258" font-size="10" font-weight="700" fill="#ffffff">node-3</text>
+    <rect x="432" y="276" width="126" height="44" rx="6" fill="#d1fae5" stroke="#a7f3d0"/>
+    <rect x="435" y="280" width="120" height="36" rx="4" fill="#2563eb"/>
+    <text x="495" y="305" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">A</text>
+    <text x="495" y="342" font-size="8" font-weight="600" fill="#047857" text-anchor="middle">full copy</text>
+  </g>
+
+  <!-- Erasure coding panel -->
+  <rect x="610" y="30" width="550" height="356" rx="16" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="2"/>
+  <text x="630" y="70" font-size="22" font-weight="700" fill="#5b21b6">Erasure Coding (2 + 1)</text>
+  <text x="630" y="100" font-size="13" fill="#334155">Object A splits into 2 data shards + 1 parity.</text>
+  <text x="630" y="128" font-size="12" font-weight="600" fill="#6d28d9">Each shard is &#189; the size of object A.</text>
+  <text x="630" y="162" font-size="12" fill="#5b21b6">&#8226; Any 2 of 3 shards rebuild A</text>
+  <text x="630" y="186" font-size="12" fill="#5b21b6">&#8226; Rebuild required after a failure</text>
+  <text x="630" y="210" font-size="12" fill="#5b21b6">&#8226; Lower storage overhead</text>
+
+  <g filter="url(#shadow)">
+    <rect x="970" y="48" width="170" height="156" rx="12" fill="#ede9fe" stroke="#c4b5fd" stroke-width="1.5"/>
+    <text x="1055" y="108" font-size="30" font-weight="700" fill="#5b21b6" text-anchor="middle">1</text>
+    <text x="1055" y="128" font-size="10" font-weight="600" fill="#6d28d9" text-anchor="middle">node failure tolerated</text>
+    <line x1="986" y1="142" x2="1124" y2="142" stroke="#c4b5fd" stroke-width="1"/>
+    <text x="1055" y="178" font-size="24" font-weight="700" fill="#5b21b6" text-anchor="middle">67%</text>
+    <text x="1055" y="194" font-size="10" font-weight="600" fill="#6d28d9" text-anchor="middle">usable &#183; 33% overhead</text>
+  </g>
+
+  <!-- Erasure coding nodes -->
+  <g filter="url(#shadow)">
+    <rect x="630" y="240" width="150" height="120" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
+    <rect x="630" y="240" width="150" height="26" rx="8" fill="#047857"/>
+    <rect x="630" y="256" width="150" height="10" fill="#047857"/>
+    <text x="642" y="258" font-size="10" font-weight="700" fill="#ffffff">node-1</text>
+    <rect x="642" y="276" width="126" height="44" rx="6" fill="#d1fae5" stroke="#a7f3d0"/>
+    <rect x="645" y="280" width="60" height="36" rx="4" fill="#2563eb"/>
+    <text x="675" y="304" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">A1</text>
+    <text x="705" y="342" font-size="8" font-weight="600" fill="#047857" text-anchor="middle">data shard (&#189;)</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="810" y="240" width="150" height="120" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
+    <rect x="810" y="240" width="150" height="26" rx="8" fill="#047857"/>
+    <rect x="810" y="256" width="150" height="10" fill="#047857"/>
+    <text x="822" y="258" font-size="10" font-weight="700" fill="#ffffff">node-2</text>
+    <rect x="822" y="276" width="126" height="44" rx="6" fill="#d1fae5" stroke="#a7f3d0"/>
+    <rect x="825" y="280" width="60" height="36" rx="4" fill="#2563eb"/>
+    <text x="855" y="304" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">A2</text>
+    <text x="885" y="342" font-size="8" font-weight="600" fill="#047857" text-anchor="middle">data shard (&#189;)</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="990" y="240" width="150" height="120" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
+    <rect x="990" y="240" width="150" height="26" rx="8" fill="#047857"/>
+    <rect x="990" y="256" width="150" height="10" fill="#047857"/>
+    <text x="1002" y="258" font-size="10" font-weight="700" fill="#ffffff">node-3</text>
+    <rect x="1002" y="276" width="126" height="44" rx="6" fill="#d1fae5" stroke="#a7f3d0"/>
+    <rect x="1005" y="280" width="60" height="36" rx="4" fill="#d97706"/>
+    <text x="1035" y="304" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">P1</text>
+    <text x="1065" y="342" font-size="8" font-weight="600" fill="#047857" text-anchor="middle">parity shard (&#189;)</text>
+  </g>
+</svg>
