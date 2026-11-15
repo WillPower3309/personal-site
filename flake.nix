@@ -45,7 +45,7 @@
             newpost = utils.lib.mkApp {
               drv = pkgs.writeShellScriptBin "new-post" ''
                 ${themeInitScript}
-                ${pkgs.hugo}/bin/hugo new content posts/"$1".md
+                ${pkgs.hugo}/bin/hugo new content post/"$1".md
               '';
             };
 

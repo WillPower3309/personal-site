@@ -49,11 +49,11 @@ Beyond its reproducable nature, NixOS allows a system to be rolled back to a pre
 
 #### Containers vs MicroVMs
 
+![Diagram comparing virtual machines, microVMs, and containers. VMs and microVMs share the same hypervisor; VMs boot a full guest OS with a full driver set, microVMs run the same distro on a minimal kernel with virtio-only drivers, and containers share the host kernel.](/img/container-vm-microvm.svg)
+
 MicroVMs are minimal and more efficient than typical virtual machines, as they omit as much hardware emulation as possible, leveraging virtio drivers to interface directly with their hypervisor. A Nix-based tool, [microvm-nix](https://github.com/microvm-nix/microvm.nix), exists to allow easy generation of MicroVMs through NixOS. This was a compelling option as it would allow me to migrate my existing services with minimal changes, beyond specifying the resource allocation needed for a given service to function.
 
 While virtual machines provide stronger security than containers (which share the host's kernel), containers are much lighter than virtual machines, even when considering MicroVMs. I am comfortable with that tradeoff, given that all of my services --- sans Plex --- are only accessed through a mesh VPN and are not open to the wider internet.
-
-![Diagram comparing virtual machines, microVMs, and containers. VMs and microVMs share the same hypervisor; VMs boot a full guest OS with a full driver set, microVMs run the same distro on a minimal kernel with virtio-only drivers, and containers share the host kernel.](/img/container-vm-microvm.svg)
 
 Containers can also be declared through Nix, but would require some additional migration effort, as NixOS heavily leans on systemd for service lifecycle management. Systemd doesn't play nicely with containers as both it and the container runtime want to manage control groups within the container. Thankfully, a [service abstraction layer was recently merged into NixOS](https://github.com/NixOS/nixpkgs/pull/372170). This means that I can convert my existing service configs into containers by refactoring their upstream modules to be modular, and then leverage a tool like [Nimi](https://github.com/weyl-ai/nimi) to replace systemd as PID 1.
 
