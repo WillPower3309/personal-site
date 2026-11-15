@@ -128,11 +128,11 @@
   <g stroke="#7c3aed" stroke-width="2" stroke-dasharray="5 4" fill="none" filter="url(#casing)">
     <line x1="320" y1="310" x2="360" y2="310"/>
     <line x1="600" y1="310" x2="640" y2="310"/>
-    <path d="M320 484 C 320 534, 640 534, 640 484"/>
+    <path d="M320 420 C 320 478, 640 478, 640 420"/>
   </g>
   <text x="340" y="300" font-size="9" font-weight="600" fill="#7c3aed" text-anchor="middle" class="halo halo-label">USB4</text>
   <text x="620" y="300" font-size="9" font-weight="600" fill="#7c3aed" text-anchor="middle" class="halo halo-label">USB4</text>
-  <text x="400" y="490" font-size="9" font-weight="600" fill="#7c3aed" text-anchor="middle" class="halo halo-label">USB4</text>
+  <text x="400" y="468" font-size="9" font-weight="600" fill="#7c3aed" text-anchor="middle" class="halo halo-label">USB4</text>
 
   <!-- Node to JBOD storage links -->
   <g stroke="#d97706" stroke-width="2" stroke-dasharray="5 4" filter="url(#casing)">
