@@ -1,0 +1,75 @@
+%% render: nix --extra-experimental-features 'nix-command' run nixpkgs#mermaid-cli -- -i architecture-overview.mmd -b transparent -o <out.svg>
+%%{init: {"theme": "base", "themeVariables": {"primaryTextColor": "#cdd6f4", "primaryColor": "#45475a", "lineColor": "#9399b2", "edgeLabelBackground": "transparent", "fontFamily": "monospace"}} }%%
+flowchart TB
+
+  APPS("Wayland clients")
+
+  TOOLS("swaymsg")
+
+  subgraph WLROOTS["wlroots"]
+    direction LR
+    WLCORE("Wayland core protocol handling")
+    SEAT("Seat / input")
+    SCENE("Scene Graph API")
+    RENDER("Renderer")
+  end
+
+  subgraph SWAY["Sway"]
+    direction TB
+    subgraph INPUT["input/"]
+      KB("keyboard.c")
+      CURSOR("cursor.c + seatop_*")
+    end
+    subgraph CORE["/"]
+      SVR("server.c / main.c")
+      IPC("ipc-server.c")
+      CMD("commands/ + config/")
+    end
+    subgraph TREE["tree/"]
+      ROOT("root.c<br/>output.c<br/>workspace.c<br/>container.c<br/>view.c<br/><i>hierarchical container tree</i>")
+      ARRANGE("arrange.c<br/><i>layout math</i>")
+    end
+    subgraph DESKTOP["desktop/"]
+      VIEWS("xdg_shell.c, xwayland.c,<br/>layer_shell.c<br/><i>view lifecycles</i>")
+      TXN("transaction.c<br/><i>atomic batched commits of visual changes</i>")
+    end
+    SCENED("scene_descriptor.c + tree/<br/><i>scene graph mirroring container tree</i>")
+  end
+
+  DISPLAY("Display")
+
+  APPS -- "Wayland protocol" --> WLCORE
+  TOOLS -- "unix socket" --> IPC
+
+  WLCORE -- "surface & view events" <--> VIEWS
+  SEAT -- "input events" <--> CURSOR
+  SVR -- "registers callbacks, drives event loop" --> WLCORE
+
+  IPC --> CMD
+  KB --> CMD
+  CMD --> ROOT
+  ROOT --> VIEWS
+  CURSOR --> ROOT
+  ROOT --> ARRANGE
+  ARRANGE --> TXN
+  TXN --> SCENED
+
+  SCENED <--> SCENE
+  SCENE --> RENDER
+  RENDER --> DISPLAY
+
+  classDef external fill:#45475a,stroke:#585b70,color:#cdd6f4;
+  classDef wlroots fill:#f9e2af,stroke:#f9e2af,color:#1e1e2e;
+  classDef sway fill:#89b4fa,stroke:#89b4fa,color:#1e1e2e;
+
+  class APPS,TOOLS,DISPLAY external;
+  class WLCORE,SEAT,SCENE,RENDER wlroots;
+  class SVR,IPC,CMD,KB,CURSOR,ROOT,ARRANGE,VIEWS,TXN,SCENED sway;
+
+  style WLROOTS fill:#f9e2af14,stroke:#f9e2af,color:#f9e2af
+  style SWAY fill:#89b4fa14,stroke:#89b4fa,color:#89b4fa
+  style CORE fill:#cba6f714,stroke:#cba6f7,color:#cba6f7
+  style INPUT fill:#a6e3a114,stroke:#a6e3a1,color:#a6e3a1
+  style TREE fill:#89b4fa14,stroke:#89b4fa,color:#89b4fa
+  style DESKTOP fill:#f38ba814,stroke:#f38ba8,color:#f38ba8
+

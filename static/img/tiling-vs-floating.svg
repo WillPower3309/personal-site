@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" font-family="monospace" font-size="18">
+
+  <!-- Stacking panel -->
+  <text x="225" y="45" fill="#757575" text-anchor="middle" font-size="24">Stacking (macOS, Windows)</text>
+  <rect x="40" y="70" width="370" height="400" fill="#313244" stroke="#585b70" stroke-width="2"/>
+  <!-- bar -->
+  <rect x="40" y="70" width="370" height="30" fill="#45475a"/>
+  <text x="55" y="92" fill="#cdd6f4" font-size="14">activity bar</text>
+  <!-- overlapping windows -->
+  <rect x="70"  y="130" width="220" height="160" fill="#89b4fa" rx="4"/>
+  <text x="180" y="215" text-anchor="middle" fill="#1e1e2e">Window A</text>
+  <rect x="150" y="200" width="220" height="160" fill="#a6e3a1" rx="4"/>
+  <text x="260" y="285" text-anchor="middle" fill="#1e1e2e">Window B</text>
+  <rect x="110" y="300" width="200" height="150" fill="#f9e2af" rx="4"/>
+  <text x="210" y="380" text-anchor="middle" fill="#1e1e2e">Window C</text>
+
+  <!-- Tiling panel -->
+  <text x="675" y="45" fill="#757575" text-anchor="middle" font-size="24">Tiling (sway)</text>
+  <rect x="490" y="70" width="370" height="400" fill="#313244" stroke="#585b70" stroke-width="2"/>
+  <!-- bar -->
+  <rect x="490" y="70" width="370" height="30" fill="#45475a"/>
+  <text x="505" y="92" fill="#cdd6f4" font-size="14">activity bar</text>
+  <!-- top-left, top-right -->
+  <rect x="500" y="110" width="175" height="170" fill="#89b4fa" rx="4"/>
+  <text x="587" y="200" text-anchor="middle" fill="#1e1e2e">Window A</text>
+  <rect x="685" y="110" width="165" height="170" fill="#a6e3a1" rx="4"/>
+  <text x="767" y="200" text-anchor="middle" fill="#1e1e2e">Window B</text>
+  <!-- bottom full width -->
+  <rect x="500" y="290" width="350" height="170" fill="#f9e2af" rx="4"/>
+  <text x="675" y="380" text-anchor="middle" fill="#1e1e2e">Window C</text>
+
+</svg>
