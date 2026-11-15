@@ -53,6 +53,8 @@ MicroVMs are minimal and more efficient than typical virtual machines, as they o
 
 While virtual machines provide stronger security than containers (which share the host's kernel), containers are much lighter than virtual machines, even when considering MicroVMs. I am comfortable with that tradeoff, given that all of my services --- sans Plex --- are only accessed through a mesh VPN and are not open to the wider internet.
 
+![Diagram comparing virtual machines, microVMs, and containers. VMs and microVMs share the same hypervisor; VMs boot a full guest OS with a full driver set, microVMs run the same distro on a minimal kernel with virtio-only drivers, and containers share the host kernel.](/img/container-vm-microvm.svg)
+
 Containers can also be declared through Nix, but would require some additional migration effort, as NixOS heavily leans on systemd for service lifecycle management. Systemd doesn't play nicely with containers as both it and the container runtime want to manage control groups within the container. Thankfully, a [service abstraction layer was recently merged into NixOS](https://github.com/NixOS/nixpkgs/pull/372170). This means that I can convert my existing service configs into containers by refactoring their upstream modules to be modular, and then leverage a tool like [Nimi](https://github.com/weyl-ai/nimi) to replace systemd as PID 1.
 
 Despite containers requiring more refactoring than MicroVMs, they better align with my power efficiency goals, making them the better choice for me.

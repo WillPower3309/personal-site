@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="692" viewBox="0 0 1200 692" font-family="Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#10b981"/>
+    </marker>
+    <marker id="arrow-violet" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#8b5cf6"/>
+    </marker>
+  </defs>
+
+  <!-- ===================== Containers ===================== -->
+  <g transform="translate(760 0)">
+  <rect x="40" y="60" width="360" height="572" rx="16" fill="#f0fdf4" stroke="#86efac" stroke-width="2"/>
+  <text x="62" y="98" font-size="21" font-weight="700" fill="#047857">Containers</text>
+  <text x="62" y="122" font-size="11.5" fill="#475569">Processes isolated on a shared kernel</text>
+  <line x1="62" y1="138" x2="378" y2="138" stroke="#86efac" stroke-width="1.5"/>
+
+  <rect x="62" y="152" width="316" height="30" rx="15" fill="#ffffff" stroke="#6ee7b7" stroke-width="1.5"/>
+  <text x="74" y="172" font-size="11" font-weight="700" fill="#047857">Runs on the host kernel</text>
+  <text x="62" y="204" font-size="10.5" fill="#334155" textLength="316">Containers are isolated processes that share the host kernel</text>
+  <text x="62" y="222" font-size="10.5" fill="#334155" textLength="316">and its drivers, so there is no guest OS to boot each time.</text>
+
+  <line x1="220" y1="256" x2="220" y2="428" stroke="#10b981" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+  <text x="232" y="348" font-size="9.5" font-weight="600" fill="#047857">nothing to boot</text>
+
+  <!-- Containers -->
+  <g filter="url(#shadow)">
+    <rect x="62" y="440" width="153" height="94" rx="8" fill="#ffffff" stroke="#0284c7" stroke-width="1.8"/>
+    <rect x="62" y="440" width="153" height="24" rx="8" fill="#0284c7"/>
+    <rect x="62" y="452" width="153" height="12" fill="#0284c7"/>
+    <text x="138.5" y="456" font-size="9.5" font-weight="700" fill="#ffffff" text-anchor="middle">Container 1</text>
+    <rect x="72" y="476" width="133" height="48" rx="6" fill="#e0f2fe" stroke="#7dd3fc"/>
+    <text x="138.5" y="504" font-size="12" font-weight="700" fill="#0c4a6e" text-anchor="middle">app 1</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="225" y="440" width="153" height="94" rx="8" fill="#ffffff" stroke="#0284c7" stroke-width="1.8"/>
+    <rect x="225" y="440" width="153" height="24" rx="8" fill="#0284c7"/>
+    <rect x="225" y="452" width="153" height="12" fill="#0284c7"/>
+    <text x="301.5" y="456" font-size="9.5" font-weight="700" fill="#ffffff" text-anchor="middle">Container 2</text>
+    <rect x="235" y="476" width="133" height="48" rx="6" fill="#e0f2fe" stroke="#7dd3fc"/>
+    <text x="301.5" y="504" font-size="12" font-weight="700" fill="#0c4a6e" text-anchor="middle">app 2</text>
+  </g>
+
+  <!-- Container runtime -->
+  <g filter="url(#shadow)">
+    <rect x="62" y="544" width="316" height="32" rx="8" fill="#ccfbf1" stroke="#0d9488" stroke-width="2"/>
+    <text x="74" y="565" font-size="10.5" font-weight="700" fill="#0f766e">container runtime &#183; namespaces + cgroups</text>
+  </g>
+
+  <!-- Hardware -->
+  <g filter="url(#shadow)">
+    <rect x="62" y="584" width="316" height="32" rx="8" fill="#334155" stroke="#64748b" stroke-width="2"/>
+    <text x="74" y="605" font-size="10.5" font-weight="700" fill="#ffffff">Physical host</text>
+  </g>
+
+  </g>
+
+  <!-- ===================== Virtual Machines ===================== -->
+  <g transform="translate(-380 0)">
+  <rect x="420" y="60" width="360" height="572" rx="16" fill="#eff6ff" stroke="#bfdbfe" stroke-width="2"/>
+  <text x="442" y="98" font-size="21" font-weight="700" fill="#1d4ed8">Virtual Machines</text>
+  <text x="442" y="122" font-size="11.5" fill="#475569">A full OS per workload, behind a hypervisor</text>
+  <line x1="442" y1="138" x2="758" y2="138" stroke="#bfdbfe" stroke-width="1.5"/>
+
+  <rect x="442" y="152" width="316" height="30" rx="15" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="454" y="172" font-size="11" font-weight="700" fill="#1d4ed8">Full guest OS per VM</text>
+  <text x="442" y="204" font-size="10.5" fill="#334155" textLength="316">Each VM boots a full OS with a general-purpose kernel and</text>
+  <text x="442" y="222" font-size="10.5" fill="#334155" textLength="316">a broad driver set, including emulated legacy hardware.</text>
+
+  <!-- VM 1 -->
+  <g filter="url(#shadow)">
+    <rect x="442" y="304" width="153" height="230" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.8"/>
+    <rect x="442" y="304" width="153" height="24" rx="8" fill="#1d4ed8"/>
+    <rect x="442" y="316" width="153" height="12" fill="#1d4ed8"/>
+    <text x="518.5" y="320" font-size="9.5" font-weight="700" fill="#ffffff" text-anchor="middle">VM 1</text>
+    <rect x="452" y="340" width="133" height="48" rx="6" fill="#2563eb"/>
+    <text x="518.5" y="368" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">app 1</text>
+    <rect x="452" y="400" width="133" height="124" rx="6" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.2"/>
+    <text x="460" y="416" font-size="9.5" font-weight="700" fill="#3730a3">Guest OS</text>
+    <rect x="460" y="424" width="117" height="24" rx="4" fill="#c7d2fe"/>
+    <text x="518.5" y="440" font-size="8" fill="#3730a3" text-anchor="middle">kernel</text>
+    <rect x="460" y="454" width="117" height="62" rx="4" fill="#c7d2fe"/>
+    <text x="518.5" y="474" font-size="8" fill="#3730a3" text-anchor="middle">full drivers</text>
+    <text x="518.5" y="490" font-size="7" fill="#3730a3" text-anchor="middle">SATA &#183; e1000 &#183; VGA &#183; USB</text>
+    <text x="518.5" y="504" font-size="7" fill="#3730a3" text-anchor="middle">PS/2 &#183; serial &#183; parallel</text>
+  </g>
+
+  <!-- VM 2 -->
+  <g filter="url(#shadow)">
+    <rect x="605" y="304" width="153" height="230" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.8"/>
+    <rect x="605" y="304" width="153" height="24" rx="8" fill="#1d4ed8"/>
+    <rect x="605" y="316" width="153" height="12" fill="#1d4ed8"/>
+    <text x="681.5" y="320" font-size="9.5" font-weight="700" fill="#ffffff" text-anchor="middle">VM 2</text>
+    <rect x="615" y="340" width="133" height="48" rx="6" fill="#2563eb"/>
+    <text x="681.5" y="368" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">app 2</text>
+    <rect x="615" y="400" width="133" height="124" rx="6" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.2"/>
+    <text x="623" y="416" font-size="9.5" font-weight="700" fill="#3730a3">Guest OS</text>
+    <rect x="623" y="424" width="117" height="24" rx="4" fill="#c7d2fe"/>
+    <text x="681.5" y="440" font-size="8" fill="#3730a3" text-anchor="middle">kernel</text>
+    <rect x="623" y="454" width="117" height="62" rx="4" fill="#c7d2fe"/>
+    <text x="681.5" y="474" font-size="8" fill="#3730a3" text-anchor="middle">full drivers</text>
+    <text x="681.5" y="490" font-size="7" fill="#3730a3" text-anchor="middle">SATA &#183; e1000 &#183; VGA &#183; USB</text>
+    <text x="681.5" y="504" font-size="7" fill="#3730a3" text-anchor="middle">PS/2 &#183; serial &#183; parallel</text>
+  </g>
+
+  <!-- Hypervisor -->
+  <g filter="url(#shadow)">
+    <rect x="442" y="544" width="316" height="32" rx="8" fill="#1d4ed8" stroke="#2563eb" stroke-width="2"/>
+    <text x="454" y="565" font-size="10.5" font-weight="700" fill="#ffffff">Hypervisor (KVM)</text>
+  </g>
+
+  <!-- Hardware -->
+  <g filter="url(#shadow)">
+    <rect x="442" y="584" width="316" height="32" rx="8" fill="#334155" stroke="#64748b" stroke-width="2"/>
+    <text x="454" y="605" font-size="10.5" font-weight="700" fill="#ffffff">Physical host</text>
+  </g>
+
+  </g>
+
+  <!-- ===================== MicroVMs ===================== -->
+  <g transform="translate(-380 0)">
+  <rect x="800" y="60" width="360" height="572" rx="16" fill="#f5f3ff" stroke="#ddd6fe" stroke-width="2"/>
+  <text x="822" y="98" font-size="21" font-weight="700" fill="#6d28d9">MicroVMs</text>
+  <text x="822" y="122" font-size="11.5" fill="#475569">A full distro on a tiny kernel and VMM</text>
+  <line x1="822" y1="138" x2="1138" y2="138" stroke="#ddd6fe" stroke-width="1.5"/>
+
+  <rect x="822" y="152" width="316" height="30" rx="15" fill="#ffffff" stroke="#c4b5fd" stroke-width="1.5"/>
+  <text x="834" y="172" font-size="11" font-weight="700" fill="#6d28d9">Own minimal kernel</text>
+  <text x="822" y="204" font-size="10.5" fill="#334155" textLength="316">A minimal kernel and virtio-only device model cut boot time</text>
+  <text x="822" y="222" font-size="10.5" fill="#334155" textLength="316">and overhead while still running the same distro as a VM.</text>
+
+  <line x1="980" y1="256" x2="980" y2="332" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow-violet)"/>
+  <text x="992" y="295" font-size="9.5" font-weight="600" fill="#6d28d9">less to boot</text>
+
+  <!-- MicroVM 1 -->
+  <g filter="url(#shadow)">
+    <rect x="822" y="344" width="153" height="190" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.8"/>
+    <rect x="822" y="344" width="153" height="24" rx="8" fill="#6d28d9"/>
+    <rect x="822" y="356" width="153" height="12" fill="#6d28d9"/>
+    <text x="898.5" y="360" font-size="9.5" font-weight="700" fill="#ffffff" text-anchor="middle">MicroVM 1</text>
+    <rect x="832" y="380" width="133" height="48" rx="6" fill="#2563eb"/>
+    <text x="898.5" y="408" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">app 1</text>
+    <rect x="832" y="440" width="133" height="84" rx="6" fill="#ede9fe" stroke="#a78bfa" stroke-width="1.2"/>
+    <text x="840" y="456" font-size="9.5" font-weight="700" fill="#5b21b6">Guest OS</text>
+    <rect x="840" y="464" width="117" height="16" rx="4" fill="#ddd6fe"/>
+    <text x="898.5" y="475" font-size="7.5" fill="#5b21b6" text-anchor="middle">minimal kernel</text>
+    <rect x="840" y="484" width="117" height="32" rx="4" fill="#ddd6fe"/>
+    <text x="898.5" y="498" font-size="8" fill="#5b21b6" text-anchor="middle">virtio drivers</text>
+    <text x="898.5" y="510" font-size="7" fill="#5b21b6" text-anchor="middle">net &#183; blk &#183; vsock</text>
+  </g>
+
+  <!-- MicroVM 2 -->
+  <g filter="url(#shadow)">
+    <rect x="985" y="344" width="153" height="190" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.8"/>
+    <rect x="985" y="344" width="153" height="24" rx="8" fill="#6d28d9"/>
+    <rect x="985" y="356" width="153" height="12" fill="#6d28d9"/>
+    <text x="1061.5" y="360" font-size="9.5" font-weight="700" fill="#ffffff" text-anchor="middle">MicroVM 2</text>
+    <rect x="995" y="380" width="133" height="48" rx="6" fill="#2563eb"/>
+    <text x="1061.5" y="408" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">app 2</text>
+    <rect x="995" y="440" width="133" height="84" rx="6" fill="#ede9fe" stroke="#a78bfa" stroke-width="1.2"/>
+    <text x="1003" y="456" font-size="9.5" font-weight="700" fill="#5b21b6">Guest OS</text>
+    <rect x="1003" y="464" width="117" height="16" rx="4" fill="#ddd6fe"/>
+    <text x="1061.5" y="475" font-size="7.5" fill="#5b21b6" text-anchor="middle">minimal kernel</text>
+    <rect x="1003" y="484" width="117" height="32" rx="4" fill="#ddd6fe"/>
+    <text x="1061.5" y="498" font-size="8" fill="#5b21b6" text-anchor="middle">virtio drivers</text>
+    <text x="1061.5" y="510" font-size="7" fill="#5b21b6" text-anchor="middle">net &#183; blk &#183; vsock</text>
+  </g>
+
+  <!-- Shared hypervisor -->
+  <g filter="url(#shadow)">
+    <rect x="822" y="544" width="316" height="32" rx="8" fill="#1d4ed8" stroke="#2563eb" stroke-width="2"/>
+    <text x="834" y="565" font-size="10.5" font-weight="700" fill="#ffffff">Hypervisor (KVM)</text>
+  </g>
+
+  <!-- Hardware -->
+  <g filter="url(#shadow)">
+    <rect x="822" y="584" width="316" height="32" rx="8" fill="#334155" stroke="#64748b" stroke-width="2"/>
+    <text x="834" y="605" font-size="10.5" font-weight="700" fill="#ffffff">Physical host</text>
+  </g>
+
+  </g>
+</svg>
